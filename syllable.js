@@ -8,6 +8,7 @@ var rules;
 var divisor;
 function definirSeparador(valor){
     divisor = valor;
+    console.log("Separador mudado para: '" + divisor + "'";
 }
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", async () => {
