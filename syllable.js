@@ -7,7 +7,7 @@ async function loadRules(filePath) {
 var rules;
 var divisor;
 function definirSeparador(valor){
-    separador = valor;
+    divisor = valor;
 }
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", async () => {
