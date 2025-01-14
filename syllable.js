@@ -11,7 +11,10 @@ function definirSeparador(valor){
     console.log("Separador mudado para: '" + divisor + "'");
     reload();
 }
-function reload() {
+async function reload() {
+    // Load the rules from the JSON file
+    const rulesFile = "https://raw.githubusercontent.com/gigiodelchiaro/separador-silabas/refs/heads/main/rules.json"; // Update to your JSON file path
+    rules = await loadRules(rulesFile);
     const vogais = rules.vogais_fortes + rules.vogais_fracas;
     const digrafos = rules.digrafos;
 
@@ -35,11 +38,8 @@ function reload() {
     console.log("Separador de silabas carregado com sucesso!");
 }
 document.addEventListener("DOMContentLoaded", async () => {
-    // Load the rules from the JSON file
-    const rulesFile = "https://raw.githubusercontent.com/gigiodelchiaro/separador-silabas/refs/heads/main/rules.json"; // Update to your JSON file path
+    
     definirSeparador("-"); // Valor padrao
-    rules = await loadRules(rulesFile);
-    reload();
 });
 // Function to apply rules to the input text
 function separarTexto(text) {
