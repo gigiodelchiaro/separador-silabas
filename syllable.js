@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             .replace("{\\2}", "$2")
             .replace("{\\3}", "$3")
     });
+    console.log("Separador de silabas carregado com sucesso!");
 });
 // Function to apply rules to the input text
 function applyRules(text) {

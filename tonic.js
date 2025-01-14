@@ -29,3 +29,4 @@ function tonic(wordSeparated) {
 
     return 2;
 }
+console.log("Identificador de sílabas tônicas carregado com sucesso!");
