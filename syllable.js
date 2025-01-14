@@ -11,7 +11,7 @@ function definirSeparador(valor){
     console.log("Separador mudado para: '" + divisor + "'");
 }
 async function reload() {
-    const rulesFile = "https://gigiodelchiaro.github.io/separador-silabas//rules.json"; // Update to your JSON file path
+    const rulesFile = "https://gigiodelchiaro.github.io/separador-silabas/rules.json"; // Update to your JSON file path
     rules = await loadRules(rulesFile);
     // Load the rules from the JSON file
     const digrafos = rules.digrafos;
