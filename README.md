@@ -10,7 +10,7 @@ Na sua página html, inclua no header:
 ```javascript
 separarTexto("texto como um todo") // retorna: "tex-to co-mo um to-do"
 
-tonica(["a", "bó", "bo", "ra]) // retorna 3
+tonica(["a", "bó", "bo", "ra"]) // retorna 3
 tonica(["ca", "sa") // retorna 2
 tonica(["a", "qui") // retorna 1
 ```
