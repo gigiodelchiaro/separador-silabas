@@ -25,3 +25,5 @@ Instale as dependencias:
 pip install -r requirements.txt
 ```
 Execute "syllables.py"
+# Eventuais problemas
+Separação incorreta, falta de tratamento de erro, sugestões, etc. -> Abra um issue em https://github.com/gigiodelchiaro/separador-silabas/issues
