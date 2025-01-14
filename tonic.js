@@ -1,6 +1,6 @@
 const strongAccents = 'áéíóúàèìòùâêîôûÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛ';
 const weakAccents = 'ãẽĩõũÃẼĨÕŨ';
-function tonic(wordSeparated) {
+function tonica(wordSeparated) {
     if (wordSeparated.length === 1) {
         return 1;
     }
