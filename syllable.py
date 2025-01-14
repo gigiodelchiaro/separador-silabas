@@ -9,21 +9,36 @@ def load_rules(file_path):
 def prepare_patterns(rules):
     """Prepares patterns by substituting placeholders."""
     vogais = rules["vogais_fortes"] + rules["vogais_fracas"]
-    digrafos = "|".join(map(re.escape, rules["digrafos"].split("|")))  # Escape digraphs
+    consoantes = rules["consoantes_fortes"] + rules["consoantes_nasais"] + rules["consoantes_s"] + rules["consoantes_l_r"]
+    letras = vogais + consoantes
+    digrafos = rules["digrafos"]  # Escape digraphs
+    divisor = "-"
     for pattern in rules["padroes"]:
         # Replace placeholders in regex
-        pattern["regex"] = pattern["regex"].format(
+        pattern["regex"] = (pattern["regex"]
+            .replace("{divisor}", divisor)
+            .replace("{\\\\1}", r"\1")  # Correct group reference
+            .replace("{\\1}", r"\1")  # Correct group reference
+            .replace("{\\2}", r"\2")  # Correct group reference
+            .replace("{\\3}", r"\3")  # Correct group reference
+            .replace("{\\w}", r"\w")  # Correct group reference
+            .replace("{\\s}", r"\s")  # Correct group reference
+            .format(
             consoantes_fortes=re.escape(rules["consoantes_fortes"]),
-            consoantes_fracas=re.escape(rules["consoantes_fracas"]),
+            consoantes_l_r=re.escape(rules["consoantes_l_r"]),
+            consoantes_s=re.escape(rules["consoantes_s"]),
+            consoantes_nasais=re.escape(rules["consoantes_nasais"]),
             vogais=re.escape(vogais),
             vogais_fortes=re.escape(rules["vogais_fortes"]),
             digrafos=digrafos,
-            divisor=re.escape(rules["divisor"])
-        )
+            divisor=divisor,
+            letras=re.escape(letras)
+        ))
         # Replace placeholders in replacement string
-        pattern["replace"] = (
-            pattern["replace"]
-            .replace("{divisor}", rules["divisor"])
+        pattern["sub"] = (
+            pattern["sub"]
+            .replace("{divisor}", divisor)
+            .replace("{\\\\1}", r"\1")  # Correct group reference
             .replace("{\\1}", r"\1")  # Correct group reference
             .replace("{\\2}", r"\2")  # Correct group reference
             .replace("{\\3}", r"\3")  # Correct group reference
@@ -35,11 +50,11 @@ def prepare_patterns(rules):
 def apply_rules(text, rules):
     """Applies rules to the given text."""
     for pattern in rules["padroes"]:
-        print(pattern["nome"])
-        text = re.sub(pattern["regex"], pattern["replace"], text)
+        text = re.sub(pattern["regex"], pattern["sub"], text)
     return text
 
 if __name__ == "__main__":
+    import tonic
     # Load the rules from the JSON file
     rules_file = "rules.json"  # Update the path to your JSON file
     rules = load_rules(rules_file)
@@ -56,3 +71,6 @@ if __name__ == "__main__":
     # Display the result
     print("Texto original:", input_text)
     print("Texto processado:", output_text)
+    separated = output_text.split("@")
+    tonicNumber = tonic.tonic(separated)
+    print("Sílaba tônica:", tonicNumber)
