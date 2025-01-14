@@ -4,7 +4,6 @@
     "consoantes_fortes": "bcfjkpqtvxçBCFJKPQTVCÇ",
     "consoantes_fracas": "dglmnrszDGLMNRSZ",
     "digrafos": "ch|nh|gu|qu|lh",
-    "divisor":  "-",
     "padroes":[
         {
         "nome": "consoantes_fortes",
