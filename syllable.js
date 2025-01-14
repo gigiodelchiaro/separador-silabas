@@ -8,7 +8,7 @@ var rules;
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", async () => {
     // Load the rules from the JSON file
-    const rulesFile = ""; // Update to your JSON file path
+    const rulesFile = "https://raw.githubusercontent.com/gigiodelchiaro/separador-silabas/refs/heads/main/rules.json"; // Update to your JSON file path
     rules = await loadRules(rulesFile);
 
     const vogais = rules.vogais_fortes + rules.vogais_fracas;
