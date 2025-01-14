@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("Separador de silabas carregado com sucesso!");
 });
 // Function to apply rules to the input text
-function applyRules(text) {
+function separarTexto(text) {
     rules.padroes.forEach(pattern => {
         const regex = new RegExp(pattern.regex, 'g');
         text = text.replace(regex, pattern.replace);
