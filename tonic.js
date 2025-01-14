@@ -20,13 +20,13 @@ function tonica(wordSeparated) {
     }
 
     const lastSyllable = wordSeparated[wordSeparated.length - 1];
-    const regex = /(i(s)?|u|z|im|us|r|l|x|n|um(s)?|ps|om|on(s)?)(\W+)?$/;
+    const regex = /(i(s)?|u|z|im|us|r|l|x|n|um(s)?|ps|om|on(s)?)(\W+)?$/gm;
 
     // Check for special case
     if (regex.test(lastSyllable)) {
         return 1;
     }
 
-    return 2;
+    return 2 + wordSeparated.join(" ").match("-").length;
 }
 console.log("Identificador de sílabas tônicas carregado com sucesso!");

@@ -1,80 +1,125 @@
 {
-    "vogais_fracas": "iouïöüIOUÏÖÜ",
+    "vogais_fracas": "iouïöüYIOUÏÖÜY",
     "vogais_fortes": "aeáéóàèòãẽõâêôäëöíúìùĩũîûAEÁÉÓÀÈÒÃẼÕÂÊÔÄËÖÍÚÌÙĨŨÎÛ",
-    "consoantes_fortes": "bcfjkpqtvxçBCFJKPQTVCÇ",
-    "consoantes_fracas": "dglmnrszDGLMNRSZ",
+    "consoantes_fortes": "bcdfgjkpqtvwxyzçBCDFGJKPQTVWXYZÇ",
+    "consoantes_l_r": "lrLR",
+    "consoantes_nasais": "mnMN",
+    "consoantes_s": "sS",
+
     "digrafos": "ch|nh|gu|qu|lh",
     "padroes":[
         {
-        "nome": "consoantes_fortes",
-        "regex": "([{consoantes_fortes}])",
-        "replace": "{divisor}{\\1}"
+            "nome": "limpeza_espacos",
+            "regex": "( )( )+",
+            "sub": " "
         },
         {
-            "nome": "consoantes_fracas",
-            "regex": "(?<![{consoantes_fortes}])([{consoantes_fracas}])(?=[{vogais}])",
-            "replace": "{divisor}{\\1}"
+            "nome": "hifen",
+            "regex": "-",
+            "sub": "-@"
         },
+        {
+            "nome": "consoantes_fortes",
+            "regex": "([{consoantes_fortes}])",
+            "sub": "@{\\1}"
+        },
+        {
+            "nome": "consoantes_l_r",
+            "regex": "(?<![{consoantes_fortes}{consoantes_s}])([{consoantes_l_r}])(?=[{vogais}])",
+            "sub": "@{\\1}"
+        },
+        {
+            "nome": "consoantes_forte_nasais",
+            "regex": "@([{consoantes_fortes}])([{consoantes_nasais}])",
+            "sub": "{\\1}@{\\2}"
+        },
+        {
+            "nome": "consoantes_outras",
+            "regex": "([{consoantes_nasais}{consoantes_s}])([{vogais}])",
+            "sub": "@{\\1}{\\2}"
+        },
+        {
+            "nome": "consoantes_l_r_nasais",
+            "regex": "([{consoantes_l_r}])([{consoantes_nasais}])",
+            "sub": "{\\1}@{\\2}"
+        },
+       
         {
             "nome": "digrafo",
             "regex": "({digrafos})",
-            "replace": "{divisor}{\\1}"
+            "sub": "@{\\1}"
         },
         {
             "nome": "hiato",
             "regex": "([{vogais}])(?=[{vogais_fortes}])",
-            "replace": "{\\1}{divisor}"
+            "sub": "{\\1}@"
         },
         {
             "nome": "letras_repetidas",
-            "regex": "(\\w)(\\1)",
-            "replace": "{\\1}{divisor}{\\1}"
+            "regex": "([{letras}])({\\\\1})",
+            "sub": "{\\1}@{\\1}"
         },
         {
             "nome": "excecao_uiu",
             "regex": "(?<![gq])(u)([{vogais}]+)",
-            "replace": "{\\1}{divisor}{\\2}"
-        },
-        {
-            "nome": "excecao_x",
-            "regex": "(?<!{divisor})(x)(?=[{consoantes_fracas}])",
-            "replace": "{\\1}"
+            "sub": "{\\1}@{\\2}"
         },
         {
             "nome": "excecao_gu_qu",
-            "regex": "(?<=(gu|qu)){divisor}([{vogais_fortes}])",
-            "replace": "{\\2}"
+            "regex": "(?<=(gu|qu))@([{vogais}])",
+            "sub": "{\\2}"
         },
-        {
-            "nome": "excecao_a-um",
-            "regex": "(a)(um)([^{vogais}]|$)",
-            "replace": "{\\1}{divisor}{\\2}"
-        },
+
         {
             "nome": "limpeza_consoantes_fortes",
-            "regex": "{divisor}([{consoantes_fortes}]){divisor}",
-            "replace": "{\\1}{divisor}"
+            "regex": "@([{consoantes_fortes}])@",
+            "sub": "{\\1}@"
         },
         {
             "nome": "limpeza_separador_duplo",
-            "regex": "{divisor}{divisor}",
-            "replace": "{divisor}"
+            "regex": "@@(?:@)?",
+            "sub": "@"
         },
         {
             "nome": "limpeza_espaco_antes",
-            "regex": " {divisor}",
-            "replace": " "
+            "regex": "(\\s+)@",
+            "sub": "{\\1}"
+        },
+
+        {
+            "nome": "excecao_a-in",
+            "regex": "(a)(in)([^{vogais}]|$|\\s+)",
+            "sub": "{\\1}@{\\2}{\\3}"
         },
         {
-            "nome": "limpeza_espaco_depois",
-            "regex": "{divisor} ",
-            "replace": " "
+            "nome": "excecao_a-inh",
+            "regex": "(a)(i)@(nh[{vogais}])",
+            "sub": "{\\1}@{\\2}@{\\3}"
         },
         {
-            "nome": "limpeza_comeco_string",
-            "regex": "^{divisor}",
-            "replace": ""
+            "nome":"limpeza_começo_palavra",
+            "regex": "(^|\\s)@",
+            "sub": "{\\1}"
+        },
+        {
+            "nome":"limpeza_hifen",
+            "regex": "(^|\\s)@",
+            "sub": "{\\1}"
+        },
+        {
+            "nome": "consoantes_sozinhas",
+            "regex": "@([{consoantes_fortes}])([^{letras}]+)?($|\\s)",
+            "sub": "{\\1}{\\2}"
+        },
+        {
+            "nome": "excecao_a-um",
+            "regex": "(a)(um)([^{vogais}]|$|\\s+)",
+            "sub": "{\\1}@{\\2}{\\3}"
+        },
+        {
+            "nome": "consoantes_nasais_ou_s_l_r",
+            "regex": "([{consoantes_nasais}{consoantes_s}])([{consoantes_l_r}])",
+            "sub": "{\\1}@{\\2}"
         }
-        
     ]
 }
