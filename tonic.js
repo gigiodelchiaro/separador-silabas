@@ -27,6 +27,6 @@ function tonica(wordSeparated) {
         return 1;
     }
 
-    return 2 + wordSeparated.join(" ").match(/-/g).length;
+    return 2 + (wordSeparated.join(" ").match(/-/g) || []).length;
 }
 console.log("Identificador de sílabas tônicas carregado com sucesso!");
