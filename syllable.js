@@ -5,10 +5,15 @@ async function loadRules(filePath) {
     return await response.json();
 }
 var rules;
+var divisor;
+function definirSeparador(valor){
+    separador = valor;
+}
 // Wait for the DOM to load
 document.addEventListener("DOMContentLoaded", async () => {
     // Load the rules from the JSON file
     const rulesFile = "https://raw.githubusercontent.com/gigiodelchiaro/separador-silabas/refs/heads/main/rules.json"; // Update to your JSON file path
+    definirSeparador("-"); // Valor padrao
     rules = await loadRules(rulesFile);
 
     const vogais = rules.vogais_fortes + rules.vogais_fracas;
@@ -22,11 +27,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             .replace("{vogais}",vogais)
             .replace("{vogais_fortes}", rules.vogais_fortes)
             .replace("{digrafos}", digrafos)
-            .replace("{divisor}", rules.divisor);
+            .replace("{divisor}", divisor);
 
         // Replace placeholders in replacement string
         pattern.replace = pattern.replace
-            .replace("{divisor}", rules.divisor)
+            .replace("{divisor}", divisor)
             .replace("{\\1}", "$1")
             .replace("{\\2}", "$2")
             .replace("{\\3}", "$3")
