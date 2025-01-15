@@ -44,7 +44,6 @@ async function reload() {
             .replaceAll("{\\1}", "$1")
             .replaceAll("{\\2}", "$2")
             .replaceAll("{\\3}", "$3");
-        console.log(pattern);
     });
     console.log("Separador de silabas carregado com sucesso!");
 }
