@@ -75,11 +75,7 @@
             "regex": "@([{consoantes_fortes}])@",
             "sub": "{\\1}@"
         },
-        {
-            "nome": "limpeza_separador_duplo",
-            "regex": "@@(?:@)?",
-            "sub": "@"
-        },
+        
         {
             "nome": "limpeza_espaco_antes",
             "regex": "(\\s+)@",
@@ -120,6 +116,11 @@
             "nome": "consoantes_nasais_ou_s_l_r",
             "regex": "([{consoantes_nasais}{consoantes_s}])([{consoantes_l_r}])",
             "sub": "{\\1}@{\\2}"
+        },
+        {
+            "nome": "limpeza_separador_duplo",
+            "regex": "@@(?:@)?",
+            "sub": "@"
         }
     ]
 }
