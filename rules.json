@@ -118,6 +118,11 @@
             "sub": "{\\1}@{\\2}"
         },
         {
+            "nome": "espaço",
+            "regex": " ",
+            "sub": "@ "
+        },
+        {
             "nome": "limpeza_separador_duplo",
             "regex": "@@(?:@)?",
             "sub": "@"
