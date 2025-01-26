@@ -13,7 +13,12 @@ def tonic(word_separated):
             return i
     
     last_syllable = word_separated[-1]
+    hyphen_count = last_syllable.count('-')
+    last_syllable_before_hyphen = word_separated[-1-hyphen_count] if hyphen_count > 0 else ''
     pattern = r'(i(s)?|u|z|im|us|r|l|x|n|um(s)?|ps|om|on(s)?)(\W+)?$'
+    
     if re.search(pattern, last_syllable):
         return 1
-    return 2 + " ".join(word_separated).count("-")
+    elif hyphen_count > 0 and re.search(pattern, last_syllable_before_hyphen):
+        return hyphen_count + 1
+    return 2
