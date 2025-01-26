@@ -20,13 +20,17 @@ function tonica(wordSeparated) {
     }
 
     const lastSyllable = wordSeparated[wordSeparated.length - 1];
+    const hyphenCount = (lastSyllable.match(/-/g) || []).length;
+    const lastSyllableBeforeHyphen = wordSeparated[wordSeparated.length - 1 - hyphenCount];
     const regex = /(i(s)?|u|z|im|us|r|l|x|n|um(s)?|ps|om|on(s)?)(\W+)?$/gm;
 
     // Check for special case
     if (regex.test(lastSyllable)) {
         return 1;
     }
-
-    return 2 + (wordSeparated.join(" ").match(/-/g) || []).length;
+    else if (regex.test(lastSyllableBeforeHyphen)) {
+        return hyphenCount + 1;
+    }
+    return 2;
 }
 console.log("Identificador de sílabas tônicas carregado com sucesso!");
