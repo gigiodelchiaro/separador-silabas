@@ -37,7 +37,7 @@ async function reload() {
             .replaceAll("{\\2}", "$2")
             .replaceAll("{\\3}", "$3");
 
-        pattern.regex = new RegExp(pattern.regex, 'gm'); // Add 'g' or other flags as needed
+        pattern.regex = new RegExp(pattern.regex, 'gmi'); // Add 'g' or other flags as needed
 
         // Replace placeholders in replacement string
         pattern.sub = pattern.sub
