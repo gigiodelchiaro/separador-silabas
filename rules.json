@@ -1,10 +1,10 @@
 {
-    "vogais_fracas": "iouïöüYIOUÏÖÜY",
-    "vogais_fortes": "aeáéóàèòãẽõâêôäëöíúìùĩũîûAEÁÉÓÀÈÒÃẼÕÂÊÔÄËÖÍÚÌÙĨŨÎÛ",
-    "consoantes_fortes": "bcdfgjkpqtvwxyzçBCDFGJKPQTVWXYZÇ",
-    "consoantes_l_r": "lrLR",
-    "consoantes_nasais": "mnMN",
-    "consoantes_s": "sS",
+    "vogais_fracas": "iouïöüy",
+    "vogais_fortes": "aeáéóàèòãẽõâêôäëöíúìùĩũîû",
+    "consoantes_fortes": "bcdfgjkpqtvwxyzç",
+    "consoantes_l_r": "lr",
+    "consoantes_nasais": "mn",
+    "consoantes_s": "s",
 
     "digrafos": "ch|nh|gu|qu|lh",
     "padroes":[
