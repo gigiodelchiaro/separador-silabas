@@ -1,21 +1,39 @@
 import json
 import re
+import requests
+import string
 from bs4 import BeautifulSoup
+
+import json
+import re
+import requests
+import string
+from bs4 import BeautifulSoup
+
+BASE_URL = "http://www.portaldalinguaportuguesa.org/index.php?action=syllables&act=list&letter="
+
+# --- TEST MODE CONFIGURATION ---
+TEST_MODE = False # Set to True to scrape only a limited number of pages per letter for testing
+MAX_PAGES_PER_LETTER = 1 # Number of pages to scrape per letter in test mode
+# -------------------------------
 
 def scrape_dictionary(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
     data = []
     
     table = None
+    # Find the table that contains the text "Palavra" and "Divisão silábica"
     for t in soup.find_all('table'):
-        if t.find('th', string='Palavra'):
+        if "Palavra" in t.get_text() and "Divisão silábica" in t.get_text():
             table = t
             break
     
     if not table:
+        print("Debug: Table not found in HTML content.")
         return None
         
     rows = table.find_all('tr')
+    print(f"Debug: Found {len(rows) - 1} data rows in table.")
 
     for row in rows[1:]:  # Skip header row
         cols = row.find_all('td')
@@ -76,14 +94,46 @@ def scrape_dictionary(html_content):
 
     return data
 
-with open('/home/gigiodc/git/separador-silabas/Dicionário de divisão silábica.html', 'r', encoding='utf-8') as f:
-    html_content = f.read()
+all_scraped_data = []
 
-scraped_data = scrape_dictionary(html_content)
+for letter in string.ascii_lowercase:
+    start_index = 0
+    page_count = 0
+    while True:
+        url = f"{BASE_URL}{letter}&start={start_index}"
+        print(f"Scraping {url}")
+        response = requests.get(url)
+        if response.status_code != 200:
+            print(f"Error: Received status code {response.status_code} for {url}")
+            print(f"Response content: {response.text[:500]}...") # Print first 500 chars of content
+            break # Exit loop for this letter if there's an error
+        html_content = response.text
+        
+        scraped_data = scrape_dictionary(html_content)
+        if scraped_data:
+            all_scraped_data.extend(scraped_data)
+            print(f"Debug: Scraped {len(scraped_data)} items from {url}")
+        else:
+            print(f"Debug: No data scraped from {url}")
+        
+        soup = BeautifulSoup(html_content, 'html.parser')
+        next_page_link = soup.find('a', string='seguintes')
+        
+        page_count += 1
+        if TEST_MODE and page_count >= MAX_PAGES_PER_LETTER:
+            print(f"Debug: Test mode enabled. Breaking after {MAX_PAGES_PER_LETTER} page(s) for letter '{letter}'.")
+            break
 
-if scraped_data:
+        if next_page_link:
+            start_index += 100
+            print(f"Debug: Found 'seguintes' link. Next start_index: {start_index}")
+        else:
+            print(f"Debug: No 'seguintes' link found. Breaking loop for letter '{letter}'.")
+            break
+
+if all_scraped_data:
     with open('/home/gigiodc/git/separador-silabas/dictionary.json', 'w', encoding='utf-8') as f:
-        json.dump(scraped_data, f, ensure_ascii=False, indent=4)
+        json.dump(all_scraped_data, f, ensure_ascii=False, indent=4)
     print("Scraping complete. Data saved to dictionary.json")
 else:
-    print("Could not find the main table in the HTML file.")
+    print("No data scraped.")
