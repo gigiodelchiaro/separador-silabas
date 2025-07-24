@@ -1,0 +1,1136 @@
+[
+    {
+        "word": "a",
+        "description": "artigo definido",
+        "syllables": [
+            "a"
+        ],
+        "tonic": -1
+    },
+    {
+        "word": "a",
+        "description": "preposição",
+        "syllables": [
+            "a"
+        ],
+        "tonic": -1
+    },
+    {
+        "word": "á-bê-cê",
+        "description": "nome masculino",
+        "syllables": [
+            "á",
+            "bê",
+            "cê"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "á-é-i-ó-u",
+        "description": "nome masculino",
+        "syllables": [
+            "á",
+            "é",
+            "i",
+            "ó",
+            "u"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "a-pedido",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "pe",
+            "di",
+            "do"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "a-propósito",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "pro",
+            "pó",
+            "si",
+            "to"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "a-tempo",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "tem",
+            "po"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "à-toa",
+        "description": "adjetivo",
+        "syllables": [
+            "à",
+            "to",
+            "a"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "à-toinha",
+        "description": "adjetivo",
+        "syllables": [
+            "à",
+            "to",
+            "i",
+            "nha"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "à-vontade",
+        "description": "nome masculino",
+        "syllables": [
+            "à",
+            "von",
+            "ta",
+            "de"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "aa",
+        "description": "nome feminino",
+        "syllables": [
+            "a",
+            "a"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "aabora",
+        "description": "nome feminino",
+        "syllables": [
+            "a",
+            "a",
+            "bo",
+            "ra"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "aacheniano",
+        "description": "nome masculino",
+        "syllables": [
+            "aa",
+            "che",
+            "ni",
+            "a",
+            "no"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "aacheniano",
+        "description": "adjetivo",
+        "syllables": [
+            "aa",
+            "che",
+            "ni",
+            "a",
+            "no"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "aal",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "al"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "aaleniano",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "a",
+            "le",
+            "ni",
+            "a",
+            "no"
+        ],
+        "tonic": 6
+    },
+    {
+        "word": "aaleniense",
+        "description": "adjetivo",
+        "syllables": [
+            "aa",
+            "le",
+            "ni",
+            "en",
+            "se"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "aaleniense",
+        "description": "nome masculino",
+        "syllables": [
+            "aa",
+            "le",
+            "ni",
+            "en",
+            "se"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "aaleniense",
+        "description": "nome feminino",
+        "syllables": [
+            "aa",
+            "le",
+            "ni",
+            "en",
+            "se"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "aalênio",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "a",
+            "lê",
+            "ni",
+            "o"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "aalénio",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "a",
+            "lé",
+            "ni",
+            "o"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "aarônico",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "a",
+            "rô",
+            "ni",
+            "co"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "aarónico",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "a",
+            "ró",
+            "ni",
+            "co"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "aarônida",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "a",
+            "rô",
+            "ni",
+            "da"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "aarônida",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "a",
+            "rô",
+            "ni",
+            "da"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "aarônida",
+        "description": "nome feminino",
+        "syllables": [
+            "a",
+            "a",
+            "rô",
+            "ni",
+            "da"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "aarónida",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "a",
+            "ró",
+            "ni",
+            "da"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "aarónida",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "a",
+            "ró",
+            "ni",
+            "da"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "aarónida",
+        "description": "nome feminino",
+        "syllables": [
+            "a",
+            "a",
+            "ró",
+            "ni",
+            "da"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "aaronita",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "a",
+            "ro",
+            "ni",
+            "ta"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "ab-reação",
+        "description": "nome feminino",
+        "syllables": [
+            "ab",
+            "re",
+            "a",
+            "ção"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "ab-reativo",
+        "description": "adjetivo",
+        "syllables": [
+            "ab",
+            "re",
+            "a",
+            "ti",
+            "vo"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "ab-repticiamente",
+        "description": "advérbio",
+        "syllables": [
+            "ab",
+            "rep",
+            "ti",
+            "ci",
+            "a",
+            "men",
+            "te"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "ab-reptício",
+        "description": "adjetivo",
+        "syllables": [
+            "ab",
+            "rep",
+            "tí",
+            "ci",
+            "o"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "ab-rogação",
+        "description": "nome feminino",
+        "syllables": [
+            "ab",
+            "ro",
+            "ga",
+            "ção"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "ab-rogado",
+        "description": "adjetivo",
+        "syllables": [
+            "ab",
+            "ro",
+            "ga",
+            "do"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "ab-rogador",
+        "description": "adjetivo",
+        "syllables": [
+            "ab",
+            "ro",
+            "ga",
+            "dor"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "ab-rogador",
+        "description": "nome masculino",
+        "syllables": [
+            "ab",
+            "ro",
+            "ga",
+            "dor"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "ab-rogamento",
+        "description": "nome masculino",
+        "syllables": [
+            "ab",
+            "ro",
+            "ga",
+            "men",
+            "to"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "ab-rogante",
+        "description": "nome masculino",
+        "syllables": [
+            "ab",
+            "ro",
+            "gan",
+            "te"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "ab-rogante",
+        "description": "nome feminino",
+        "syllables": [
+            "ab",
+            "ro",
+            "gan",
+            "te"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "ab-rogante",
+        "description": "adjetivo",
+        "syllables": [
+            "ab",
+            "ro",
+            "gan",
+            "te"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "ab-rogar",
+        "description": "verbo",
+        "syllables": [
+            "ab",
+            "ro",
+            "gar"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "ab-rogativo",
+        "description": "adjetivo",
+        "syllables": [
+            "ab",
+            "ro",
+            "ga",
+            "ti",
+            "vo"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "ab-rogatório",
+        "description": "adjetivo",
+        "syllables": [
+            "ab",
+            "ro",
+            "ga",
+            "tó",
+            "ri",
+            "o"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "ab-rogável",
+        "description": "adjetivo",
+        "syllables": [
+            "ab",
+            "ro",
+            "gá",
+            "vel"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "aba",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "aba",
+        "description": "nome feminino",
+        "syllables": [
+            "a",
+            "ba"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "ababá",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "bá"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "ababá",
+        "description": "nome feminino",
+        "syllables": [
+            "a",
+            "ba",
+            "bá"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "ababá",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "bá"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "ababalhado",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "ba",
+            "lha",
+            "do"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "ababalhar",
+        "description": "verbo",
+        "syllables": [
+            "a",
+            "ba",
+            "ba",
+            "lhar"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "ababelado",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "be",
+            "la",
+            "do"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "ababelar",
+        "description": "verbo",
+        "syllables": [
+            "a",
+            "ba",
+            "be",
+            "lar"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "ababosado",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "bo",
+            "sa",
+            "do"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "ababosar",
+        "description": "verbo",
+        "syllables": [
+            "a",
+            "ba",
+            "bo",
+            "sar"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "abacá",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "cá"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "abacalhoadamente",
+        "description": "advérbio",
+        "syllables": [
+            "a",
+            "ba",
+            "ca",
+            "lho",
+            "a",
+            "da",
+            "men",
+            "te"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacalhoado",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "ca",
+            "lho",
+            "a",
+            "do"
+        ],
+        "tonic": 6
+    },
+    {
+        "word": "abacalhoar",
+        "description": "verbo",
+        "syllables": [
+            "a",
+            "ba",
+            "ca",
+            "lho",
+            "ar"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "abacamartado",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "ca",
+            "mar",
+            "ta",
+            "do"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abaçanado",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "ça",
+            "na",
+            "do"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abaçanar",
+        "description": "verbo",
+        "syllables": [
+            "a",
+            "ba",
+            "ça",
+            "nar"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "abacanto",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "can",
+            "to"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacate",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "ca",
+            "te"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacate",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "ca",
+            "te"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacate",
+        "description": "nome feminino",
+        "syllables": [
+            "a",
+            "ba",
+            "ca",
+            "te"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacateira",
+        "description": "nome feminino",
+        "syllables": [
+            "a",
+            "ba",
+            "ca",
+            "tei",
+            "ra"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacateiro",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "ca",
+            "tei",
+            "ro"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacaxi",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "ca",
+            "xi"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "abacaxi",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "ca",
+            "xi"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "abacaxi",
+        "description": "nome feminino",
+        "syllables": [
+            "a",
+            "ba",
+            "ca",
+            "xi"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "abacelado",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "ce",
+            "la",
+            "do"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacelamento",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "ce",
+            "la",
+            "men",
+            "to"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacelar",
+        "description": "verbo",
+        "syllables": [
+            "a",
+            "ba",
+            "ce",
+            "lar"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "abacelável",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "ce",
+            "lá",
+            "vel"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacenino",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "ce",
+            "ni",
+            "no"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacenino",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "ce",
+            "ni",
+            "no"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacense",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "cen",
+            "se"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacense",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "cen",
+            "se"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacense",
+        "description": "nome feminino",
+        "syllables": [
+            "a",
+            "ba",
+            "cen",
+            "se"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacharelado",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "cha",
+            "re",
+            "la",
+            "do"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacharelar",
+        "description": "verbo",
+        "syllables": [
+            "a",
+            "ba",
+            "cha",
+            "re",
+            "lar"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "abacial",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "ci",
+            "al"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "abacinado",
+        "description": "adjetivo",
+        "syllables": [
+            "a",
+            "ba",
+            "ci",
+            "na",
+            "do"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacinamento",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "ci",
+            "na",
+            "men",
+            "to"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacinar",
+        "description": "verbo",
+        "syllables": [
+            "a",
+            "ba",
+            "ci",
+            "nar"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "abacisco",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "cis",
+            "co"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacista",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "cis",
+            "ta"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacista",
+        "description": "nome feminino",
+        "syllables": [
+            "a",
+            "ba",
+            "cis",
+            "ta"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "ábaco",
+        "description": "nome masculino",
+        "syllables": [
+            "á",
+            "ba",
+            "co"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "abacomitato",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "co",
+            "mi",
+            "ta",
+            "to"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abacómite",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "có",
+            "mi",
+            "te"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "abacômite",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "cô",
+            "mi",
+            "te"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "abacto",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "bac",
+            "to"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abactor",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "bac",
+            "tor"
+        ],
+        "tonic": 1
+    },
+    {
+        "word": "abáculo",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "bá",
+            "cu",
+            "lo"
+        ],
+        "tonic": 3
+    },
+    {
+        "word": "abada",
+        "description": "nome feminino",
+        "syllables": [
+            "a",
+            "ba",
+            "da"
+        ],
+        "tonic": 2
+    },
+    {
+        "word": "abadado",
+        "description": "nome masculino",
+        "syllables": [
+            "a",
+            "ba",
+            "da",
+            "do"
+        ],
+        "tonic": 2
+    }
+]
