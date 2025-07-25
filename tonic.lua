@@ -19,9 +19,10 @@ local function has_char(str, chars)
     return false
 end
 
-local function split_word(word)
+local function split_word(word, separator)
     local syllables = {}
-    for syllable in word:gmatch("[^-]+") do
+    -- The pattern is now built dynamically to exclude the provided separator.
+    for syllable in word:gmatch("[^" .. separator .. "]+") do
         table.insert(syllables, syllable:lower())
     end
     return syllables
@@ -83,13 +84,18 @@ local function tonic(word_separated)
     return 2
 end
 
+      
 local function main()
     local word = nil
     local full = false
+    local separator = "-" -- Default separator
     
     for i = 1, #arg do
         if arg[i] == "--word" and i + 1 <= #arg then
             word = arg[i + 1]
+            i = i + 1
+        elseif arg[i] == "--separator" and i + 1 <= #arg then
+            separator = arg[i + 1]
             i = i + 1
         elseif arg[i] == "--full" then
             full = true
@@ -101,7 +107,8 @@ local function main()
         return 1
     end
     
-    local syllables = split_word(word)
+    -- Pass the custom separator to the split_word function
+    local syllables = split_word(word, separator)
     local tonic_number = tonic(syllables)
     
     if full then
@@ -114,6 +121,8 @@ local function main()
     
     return 0
 end
+
+    
 
 -- In some environments like online compilers, 'os.exit' might not be available
 -- or 'arg' might be nil. Calling main() directly is safer for testing.

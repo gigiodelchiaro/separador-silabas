@@ -258,7 +258,7 @@ local function post_process_syllabification(syllabified_word)
     end
     -- create_rule({CHAR_SETS.VOGAIS, CHAR_SETS.I, CHAR_SETS.CONSOANTES_LIQUIDAS .. CHAR_SETS.CONSOANTES_NASAIS, NOT_SET(CHAR_SETS.VOGAIS)}, 1, "Caso vogal-ir"),
     result = string.gsub(result, "([aeou])(i[nmrlz])$", "%1@%2")
-    
+
     --create_cleanup_rule({"@", "bs", "@"}, 1, "Caso bs"),
     result = string.gsub(result, "@bs@", "bs@")
     --create_cleanup_rule({"@", "d", "@", "q"}, 1, "Caso dq"),
@@ -267,7 +267,6 @@ local function post_process_syllabification(syllabified_word)
     result = string.gsub(result, "([aei])([oui])([mn])", "%1@%2%3")
     result = string.gsub(result, "([aeo])in", "%1@in")
     result = string.gsub(result, "([aeou])i@nh", "%1@i@nh")
-    
     -- Apply cleanup rules
     -- result = string.gsub(result, "([".. CHAR_SETS.CONSOANTES .."])" .. "ui@([" ..CHAR_SETS.CONSOANTES_FORTES .. "])", "%1u@i@%2")
     --create_cleanup_rule({"gq", "u", "@", "ei"}, 1, "Caso queijo"),
