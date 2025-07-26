@@ -1,3 +1,6 @@
+-- Create a table to export functions
+local M = {}
+
 -- Define sets
 local CHAR_SETS = {
     A = "a",
@@ -27,7 +30,6 @@ CHAR_SETS.CONSOANTES_FRACAS = CHAR_SETS.CONSOANTES_LIQUIDAS ..
                     CHAR_SETS.CONSOANTES_NASAIS ..
                     CHAR_SETS.S
 CHAR_SETS.LETRAS = CHAR_SETS.VOGAIS .. CHAR_SETS.CONSOANTES
--- Special operators/constants
 -- Special operators/constants
 local EQUAL = {}  -- Special marker for equal characters
 local ANY = {}    -- Special marker for any character
@@ -274,96 +276,25 @@ local function post_process_syllabification(syllabified_word)
     result = apply_cleanup_rules(result)
     return result
 end
--- Main function
-local function syllabify(word)
+
+
+-- Main syllabification function exposed
+function M.syllabify(word)
     local syllabified = syllabify_word(word)
     return post_process_syllabification(syllabified)
 end
 
--- CLI Logic
-local function split_syllables(syllabified_word)
+-- Function to split syllabified word into a table of syllables
+function M.split_syllables(syllabified_word_with_internal_separator)
     local parts = {}
-    for part in string.gmatch(syllabified_word, "[^" .. INTERNAL_SEPARATOR .. "]+") do
+    for part in string.gmatch(syllabified_word_with_internal_separator, "[^" .. INTERNAL_SEPARATOR .. "]+") do
         table.insert(parts, part)
     end
     return parts
 end
 
-local function print_usage()
-    print("Usage: lua script.lua --word <word> [--full]")
-    print("  --word <word>   The word to syllabify.")
-    print("  --full          (Optional) Print detailed output like the original script.")
-end
+-- Optionally, if you want to expose the raw separator for advanced usage
+M.INTERNAL_SEPARATOR = INTERNAL_SEPARATOR
 
-local function main(args)
-    local word_to_syllabify = nil
-    local full_output = false
-
-    local i = 1
-    while i <= #args do
-        local arg = args[i]
-        if arg == "--word" then
-            i = i + 1
-            if i <= #args then
-                word_to_syllabify = args[i]
-            else
-                print("Error: --word requires a value.")
-                print_usage()
-                return 1
-            end
-        elseif arg == "--full" then
-            full_output = true
-        else
-            print("Error: Unknown argument: " .. arg)
-            print_usage()
-            return 1
-        end
-        i = i + 1
-    end
-
-    if not word_to_syllabify then
-        print("Error: --word is required.")
-        print_usage()
-        return 1
-    end
-
-    local result_internal = syllabify(word_to_syllabify) -- Result with @ separators
-    local result_table = split_syllables(result_internal)
-
-    if full_output then
-        -- Mimic original output format
-        local display_result = string.gsub(result_internal, INTERNAL_SEPARATOR, "|") -- Use | for display
-        print("=== Portuguese Syllabification Test ===")
-        print("")
-        print(string.format("%-15s -> %s", word_to_syllabify, display_result))
-        print("")
-        print("=== Rule Summary ===")
-        print("Total syllabification rules: " .. #SYLLABIFICATION_RULES)
-        for i, rule in ipairs(SYLLABIFICATION_RULES) do
-            print(string.format("%2d. %s", i, rule.description))
-        end
-        print("")
-        print("Total cleanup rules: " .. #CLEANUP_RULES)
-        for i, rule in ipairs(CLEANUP_RULES) do
-            print(string.format("%2d. %s", i, rule.description))
-        end
-    else
-        -- Print as a Lua table
-        local output_parts = {}
-        for _, syl in ipairs(result_table) do
-            table.insert(output_parts, syl)
-        end
-        print(table.concat(output_parts, "-"))
-        -- -- Print as a Lua table
-        -- local output_parts = {}
-        -- for _, syl in ipairs(result_table) do
-        --     table.insert(output_parts, '"' .. syl .. '"')
-        -- end
-        -- print("{" .. table.concat(output_parts, ", ") .. "}")
-    end
-
-    return 0 -- Success
-end
-
--- Run the main function with command line arguments
-os.exit(main(arg))
+-- Return the module table
+return M
