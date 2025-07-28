@@ -274,6 +274,7 @@ local function post_process_syllabification(syllabified_word)
     --create_cleanup_rule({"gq", "u", "@", "ei"}, 1, "Caso queijo"),
     result = string.gsub(result, "([gq])u@([ei])", "%1u%2")
     result = apply_cleanup_rules(result)
+    result = string.gsub(result, "-", "-@")
     return result
 end
 
