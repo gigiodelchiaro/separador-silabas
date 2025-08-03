@@ -8,6 +8,7 @@
  * @throws Error if the input 'syllables' array is empty.
  */
 export default function tonic(syllables: string[]): number {
+    syllables = syllables.filter(syllable => typeof syllable === 'string' && syllable.trim() !== '');
     // Define accent categories in order of precedence, from strongest/most specific to weakest.
     // Accents are checked from the rightmost syllable towards the left.
     const accentCategories: string[] = [
