@@ -107,11 +107,15 @@ const CLEANUP_RULES: Rule[] = [
 
 export default function syllable(word: string): string {
     
-    let chars = text_to_chars(word.toLowerCase());
-    if (word == "ao" || word == "caos")
-    {
-        return word
+    const lowerWord = word.toLowerCase();
+    let chars: string[] = text_to_chars(lowerWord);
+    const exceptions: string[] = ["ao", "aos", "caos"];
+    for (let i = 0; i < exceptions.length; i++) {
+        if (lowerWord == exceptions[i]) {
+            return word
+        }
     }
+
     if (chars.length <= 1) {
         return word;
     }
@@ -176,24 +180,16 @@ export default function syllable(word: string): string {
     finalResult = finalResult.replace(/-/g, "-@");
     finalResult = finalResult.replace(/@+/g, "@"); 
     finalResult = finalResult.replace(/^@/g, ""); 
-    return finalResult;
+    
+    const finalResultChars: string[] = [];
+    let originalCharIndex = 0;
+    for (const char of finalResult) {
+        if (char === '@' || char === '-') {
+            finalResultChars.push(char);
+        } else {
+            finalResultChars.push(word[originalCharIndex]);
+            originalCharIndex++;
+        }
+    }
+    return finalResultChars.join('');
 }
-/*Original lua code:
-local SYLLABIFICATION_RULES = {
-    create_rule({CHAR_SETS.VOGAIS, CHAR_SETS.O}, 1, "Caso vogal-O"),
-    create_rule({CHAR_SETS.VOGAIS_FRACAS, CHAR_SETS.VOGAIS_FORTES}, 1, "Hiato fraco"),
-    create_rule({"ae", CHAR_SETS.VOGAIS_FORTES}, 1, "Hiato forte"),
-    --create_rule({"ou", "i"}, 1, "Hiato o/u-i"),
-    create_rule({CHAR_SETS.CONSOANTES_FORTES}, 0, "Consoantes Fortes"),
-    create_rule({CHAR_SETS.CONSOANTES_FRACAS, CHAR_SETS.VOGAIS}, 0, "Consoantes Fracas"),
-    create_rule({"bd", "s"}, 0, "Consoantes Fracas"),
-}
--- Cleanup rules
-local CLEANUP_RULES = {
-    create_cleanup_rule({CHAR_SETS.CONSOANTES_FORTES, "@", CHAR_SETS.CONSOANTES_LIQUIDAS}, 2, "Remover separador entre consoantes fortes e liquidas"),
-    create_cleanup_rule({"@", CHAR_SETS.CONSOANTES_FORTES, "@", CHAR_SETS.CONSOANTES_NASAIS .. "s"}, 1, "Remover separador entre consoantes fortes e fracas"),
-    create_cleanup_rule({"@", CHAR_SETS.CONSOANTES_FORTES, "@", CHAR_SETS.CONSOANTES_FORTES}, 1, "Remover separador entre consoantes fortes"),
-    create_cleanup_rule({"ã", "@", "o"}, 2, "Remover separador entre ã e o"),
-}
-    NOTE: some 'charsets' have been changed. The cleanup rules remove the character at an index, and the create_rules add the @ character at the index
-    */
