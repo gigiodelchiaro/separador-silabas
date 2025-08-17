@@ -59,7 +59,7 @@ function match_pattern(chars: string[], pos: number, pattern: string[]): boolean
 
     for (let i = 0; i < pattern.length; i++) {
         const pattern_char = pattern[i]!;
-        const actual_char = chars[pos + i]!;
+        const actual_char = chars[pos + i] as string;
 
         if (pattern_char === "@") {
             if (actual_char !== "@") {
@@ -136,8 +136,12 @@ function syllabify_letters(word: string): string {
     // Insert separators
     let result_chars: string[] = [];
     for (let i = 0; i < chars.length; i++) {
-        result_chars.push(chars[i]!);
-        if (separators[i + 1] && i < chars.length - 1) {
+        const charToPush = chars[i];
+        if (charToPush !== undefined) {
+            result_chars.push(chars[i]!);
+        }
+        const separatorValue = separators[i + 1];
+        if (separatorValue === true && i < chars.length - 1) {
             result_chars.push("@");
         }
     }
