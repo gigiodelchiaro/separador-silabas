@@ -105,8 +105,7 @@ const CLEANUP_RULES: Rule[] = [
     { position: 2, pattern: ["ã", "@", "o"] },
 ];
 
-export default function syllable(word: string): string {
-    
+function syllabify_letters(word: string): string {
     const lowerWord = word.toLowerCase();
     let chars: string[] = text_to_chars(lowerWord);
     const exceptions: string[] = ["ao", "aos", "caos"];
@@ -177,19 +176,67 @@ export default function syllable(word: string): string {
     finalResult = finalResult.replace(/([aeou])i@nh/g, "$1@i@nh");
     finalResult = finalResult.replace(/([gq])u@([ei])/g, "$1u$2");
     
-    finalResult = finalResult.replace(/-/g, "-@");
     finalResult = finalResult.replace(/@+/g, "@"); 
     finalResult = finalResult.replace(/^@/g, ""); 
     
-    const finalResultChars: string[] = [];
-    let originalCharIndex = 0;
-    for (const char of finalResult) {
-        if (char === '@' || char === '-') {
-            finalResultChars.push(char);
+    return finalResult;
+}
+
+export default function syllable(word: string): string {
+    const originalChars = text_to_chars(word);
+    const letterChars: string[] = [];
+
+    originalChars.forEach((char) => {
+        if (char_in_set(char.toLowerCase(), LETRAS)) {
+            letterChars.push(char);
+        }
+    });
+
+    if (letterChars.length === 0) {
+        return word;
+    }
+
+    const letterWord = letterChars.join('');
+    const syllabifiedLetterWord = syllabify_letters(letterWord);
+    const syllabifiedLetterChars = text_to_chars(syllabifiedLetterWord);
+
+    const finalChars: string[] = [];
+    let syllabifiedCursor = 0;
+
+    for (const originalChar of originalChars) {
+        if (char_in_set(originalChar.toLowerCase(), LETRAS)) {
+            while (
+                syllabifiedCursor < syllabifiedLetterChars.length &&
+                (syllabifiedLetterChars[syllabifiedCursor] === '@' || syllabifiedLetterChars[syllabifiedCursor] === '-')
+            ) {
+                finalChars.push(syllabifiedLetterChars[syllabifiedCursor]);
+                syllabifiedCursor++;
+            }
+
+            finalChars.push(originalChar);
+
+            if (
+                syllabifiedCursor < syllabifiedLetterChars.length &&
+                syllabifiedLetterChars[syllabifiedCursor].toLowerCase() === originalChar.toLowerCase()
+            ) {
+                syllabifiedCursor++;
+            }
         } else {
-            finalResultChars.push(word[originalCharIndex]);
-            originalCharIndex++;
+            finalChars.push(originalChar);
         }
     }
-    return finalResultChars.join('');
+
+    while (syllabifiedCursor < syllabifiedLetterChars.length) {
+        const char = syllabifiedLetterChars[syllabifiedCursor];
+        if (char === '@' || char === '-') {
+            finalChars.push(char);
+        }
+        syllabifiedCursor++;
+    }
+
+    let finalResult = finalChars.join('');
+    finalResult = finalResult.replace(/-/g, "-@");
+    finalResult = finalResult.replace(/@+/g, "@");
+    
+    return finalResult;
 }
