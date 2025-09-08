@@ -187,6 +187,9 @@ function syllabify_letters(word: string): string {
 }
 
 export default function syllable(word: string): string {
+    if (word.includes('-')) {
+        return word.split('-').map(part => syllable(part)).join('-@');
+    }
     const originalChars = text_to_chars(word);
     const letterChars: string[] = [];
 
