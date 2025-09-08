@@ -35,7 +35,7 @@ function text_to_chars(text: string): string[] {
     while (i < text.length) {
         const [isDig, digraph] = is_digraph(text, i);
         if (isDig) {
-            chars.push(digraph!);
+            chars.push("@" + digraph!);
             i += digraph!.length;
         } else {
             // Handle UTF-8 characters (TypeScript strings are UTF-16, but this handles common cases)
@@ -168,18 +168,11 @@ function syllabify_letters(word: string): string {
 
     // Post-processing (as new rules or direct string manipulations)
     let finalResult = processedChars.join("");
-    for (const digraph of DIGRAFOS) {
-        finalResult = finalResult.replace(new RegExp(digraph, "g"), "@" + digraph);
-    }
-    finalResult = finalResult.replace(/[gq]@u/g, "gu");
     finalResult = finalResult.replace(/([aeou])(i[nmrlz])$/, "$1@$2");
     finalResult = finalResult.replace(/@bs@/g, "bs@");
-    finalResult = finalResult.replace(/@d@q/g, "d@q");
     finalResult = finalResult.replace(/([aei])([oui])([mn])/g, "$1@$2$3");
     finalResult = finalResult.replace(/([aeo])in/g, "$1@in");
     finalResult = finalResult.replace(/([aeou])i@nh/g, "$1@i@nh");
-    finalResult = finalResult.replace(/([gq])u@([ei])/g, "$1u$2");
-    
     finalResult = finalResult.replace(/@+/g, "@"); 
     finalResult = finalResult.replace(/^@/g, ""); 
     
@@ -242,6 +235,8 @@ export default function syllable(word: string): string {
     }
 
     let finalResult = finalChars.join('');
+    finalResult = finalResult.replace(/@d@q/g, "d@q");
+    finalResult = finalResult.replace(/([gq])u@([ei])/g, "$1u$2");
     finalResult = finalResult.replace(/-/g, "-@");
     finalResult = finalResult.replace(/@+/g, "@");
     
