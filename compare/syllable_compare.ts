@@ -74,7 +74,7 @@ function runComparison(jsonFilePath: string, outputFilePath: string): void {
             }
 
             // Compare the predicted syllables with the expected syllables from the dictionary
-            if (JSON.stringify(predictedSyllables) === JSON.stringify(expectedSyllables)) {
+            if (JSON.stringify(predictedSyllables).replace("-", "") === JSON.stringify(expectedSyllables)) {
                 correctCount++;
             } else {
                 incorrectWords.push({

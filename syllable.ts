@@ -18,32 +18,17 @@ let CONSOANTES = CONSOANTES_FORTES + CONSOANTES_LIQUIDAS + CONSOANTES_NASAIS + "
 let CONSOANTES_FRACAS = CONSOANTES_LIQUIDAS + CONSOANTES_NASAIS + "s"
 let LETRAS = VOGAIS + CONSOANTES
 
-const DIGRAFOS = ["ch", "lh", "nh", "gu", "qu"];
-
-function is_digraph(text: string, pos: number): [boolean, string | null] {
-    for (const digraph of DIGRAFOS) {
-        if (text.substring(pos, pos + digraph.length) === digraph) {
-            return [true, digraph];
-        }
-    }
-    return [false, null];
-}
-
 function text_to_chars(text: string): string[] {
     const chars: string[] = [];
     let i = 0;
     while (i < text.length) {
-        const [isDig, digraph] = is_digraph(text, i);
-        if (isDig) {
-            chars.push("@" + digraph!);
-            i += digraph!.length;
-        } else {
-            // Handle UTF-8 characters (TypeScript strings are UTF-16, but this handles common cases)
-            // For full Unicode grapheme cluster support, a library might be needed.
-            const char = text.charAt(i);
-            chars.push(char);
-            i += char.length;
-        }
+       
+        // Handle UTF-8 characters (TypeScript strings are UTF-16, but this handles common cases)
+        // For full Unicode grapheme cluster support, a library might be needed.
+        const char = text.charAt(i);
+        chars.push(char);
+        i += char.length;
+        
     }
     return chars;
 }
@@ -167,12 +152,16 @@ function syllabify_letters(word: string): string {
     }
 
     // Post-processing (as new rules or direct string manipulations)
+    // const DIGRAFOS = ["ch", "lh", "nh", "gu", "qu"];
     let finalResult = processedChars.join("");
     finalResult = finalResult.replace(/([aeou])(i[nmrlz])$/, "$1@$2");
     finalResult = finalResult.replace(/@bs@/g, "bs@");
     finalResult = finalResult.replace(/([aei])([oui])([mn])/g, "$1@$2$3");
     finalResult = finalResult.replace(/([aeo])in/g, "$1@in");
-    finalResult = finalResult.replace(/([aeou])i@nh/g, "$1@i@nh");
+    finalResult = finalResult.replace(/ui@ção/g, "u@i@ção");
+    // finalResult = finalResult.replace(/ui@do/g, "u@i@do");
+    // finalResult = finalResult.replace(/ui@na/g, "u@i@na");
+    finalResult = finalResult.replace(/([gq])u@([aáãâeéẽêiíoóõô])/g, "$1u$2");
     finalResult = finalResult.replace(/@+/g, "@"); 
     finalResult = finalResult.replace(/^@/g, ""); 
     
@@ -235,12 +224,10 @@ export default function syllable(word: string): string {
     }
 
     let finalResult = finalChars.join('');
+    finalResult = finalResult.replace(/([^q])([aeou])i@nh/g, "$1$2@i@nh");
     finalResult = finalResult.replace(/@d@q/g, "d@q");
-    finalResult = finalResult.replace(/([gq])u@([ei])/g, "$1u$2");
-    finalResult = finalResult.replace(/@([sn])@([qg])/g, "$1@$2");
-    finalResult = finalResult.replace(/@([cnl]h)@([aeiou])/g, "@$1$2");
     finalResult = finalResult.replace(/-/g, "-@");
     finalResult = finalResult.replace(/@+/g, "@");
-    
+    finalResult = finalResult.replace(/^@/g, "");
     return finalResult;
 }
