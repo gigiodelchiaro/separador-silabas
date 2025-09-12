@@ -237,6 +237,8 @@ export default function syllable(word: string): string {
     let finalResult = finalChars.join('');
     finalResult = finalResult.replace(/@d@q/g, "d@q");
     finalResult = finalResult.replace(/([gq])u@([ei])/g, "$1u$2");
+    finalResult = finalResult.replace(/@([sn])@([qg])/g, "$1@$2");
+    finalResult = finalResult.replace(/@([cnl]h)@([aeiou])/g, "@$1$2");
     finalResult = finalResult.replace(/-/g, "-@");
     finalResult = finalResult.replace(/@+/g, "@");
     
