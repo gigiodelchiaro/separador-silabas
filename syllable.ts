@@ -6,6 +6,8 @@
  * @returns The word separated by '@' characters
  */
 
+import tonic from './tonic';
+
 let VOGAIS_FRACAS = "iouïöüy"
 let VOGAIS_FORTES = "aeáéóàèòãẽõâêôäëöíúìùĩũîû"
 let CONSOANTES_FORTES = "bcdfgjkpqtvwxyzç"
@@ -229,5 +231,29 @@ export default function syllable(word: string): string {
     finalResult = finalResult.replace(/-/g, "-@");
     finalResult = finalResult.replace(/@+/g, "@");
     finalResult = finalResult.replace(/^@/g, "");
+
+    const finalSyllables = finalResult.split('@');
+    if (finalSyllables.length >= 3) {
+        try {
+            const t = tonic(finalSyllables);
+            if (t === 3) {
+                const lastSyllable = finalSyllables[finalSyllables.length - 1]!;
+                const penultimateSyllable = finalSyllables[finalSyllables.length - 2]!;
+
+                const lastCharOfPenultimate = penultimateSyllable[penultimateSyllable.length - 1]!;
+                const firstCharOfLast = lastSyllable[0]!;
+
+                if (char_in_set(lastCharOfPenultimate.toLowerCase(), VOGAIS_FRACAS) &&
+                    (char_in_set(firstCharOfLast.toLowerCase(), VOGAIS_FORTES) || firstCharOfLast.toLowerCase() === 'o')) {
+                    finalSyllables[finalSyllables.length - 2] = penultimateSyllable + lastSyllable;
+                    finalSyllables.pop();
+                    finalResult = finalSyllables.join('@');
+                }
+            }
+        } catch (e) {
+            // ignore
+        }
+    }
+
     return finalResult;
 }
